@@ -1,0 +1,331 @@
+
+:root {
+  --bg: #0b1220;
+  --panel: #172235;
+  --border: #29364b;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --blue: #3b82f6;
+  --green: #22c55e;
+  --red: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.dashboard {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 28px 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  color: #60a5fa;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 19px;
+}
+
+h3 {
+  margin: 4px 0;
+  font-size: 32px;
+}
+
+.subtitle,
+.description,
+.hint {
+  color: var(--muted);
+}
+
+.subtitle {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.status {
+  padding: 9px 15px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.offline {
+  color: #fca5a5;
+  background: #451d29;
+}
+
+.online {
+  color: #86efac;
+  background: #14532d;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 20px;
+}
+
+.section-title,
+.setting-row,
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-title {
+  margin-bottom: 18px;
+}
+
+.status-row {
+  padding: 10px 0;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.status-row:last-child {
+  border-bottom: none;
+}
+
+.status-row strong {
+  color: var(--text);
+}
+
+.demo-badge {
+  font-size: 11px;
+  padding: 4px 9px;
+  background: #334155;
+  border-radius: 6px;
+}
+
+.heading {
+  margin: 28px 0 15px;
+}
+
+.sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.sensor-card {
+  margin: 0;
+}
+
+.sensor-card p {
+  color: var(--muted);
+  margin: 10px 0 0;
+}
+
+.sensor-card small {
+  color: var(--muted);
+}
+
+.sensor-icon {
+  font-size: 25px;
+  color: #60a5fa;
+}
+
+.control-panel {
+  margin-top: 22px;
+}
+
+.btn {
+  border: 1px solid #475569;
+  background: #334155;
+  color: white;
+  padding: 11px 20px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  filter: brightness(1.2);
+}
+
+.btn.active {
+  background: #2563eb;
+  border-color: #60a5fa;
+}
+
+.setting-row {
+  margin: 18px 0 8px;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--blue);
+  cursor: pointer;
+}
+
+.field-label {
+  display: block;
+  margin-top: 25px;
+  margin-bottom: 12px;
+}
+
+.color-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+input[type="color"] {
+  width: 65px;
+  height: 42px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+#colorValue {
+  color: var(--muted);
+  font-family: monospace;
+}
+
+.light-preview {
+  position: relative;
+  overflow: hidden;
+  background: #0b1220;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  height: 115px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding: 12px;
+}
+
+#previewGlow {
+  position: absolute;
+  width: 180px;
+  height: 80px;
+  top: 5px;
+  border-radius: 50%;
+  filter: blur(35px);
+  opacity: 0.7;
+  background: #60a5fa;
+}
+
+#lightState {
+  position: relative;
+  z-index: 1;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+.mode-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.mode-buttons .btn {
+  flex: 1;
+}
+
+.mode-content {
+  margin-top: 20px;
+  padding: 18px;
+  background: #0b1220;
+  border-radius: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+.hint {
+  font-size: 12px;
+}
+
+.fan-indicator {
+  background: #334155;
+  padding: 6px 13px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.fan-indicator.running {
+  color: #86efac;
+  background: #14532d;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .dashboard {
+    padding: 18px 12px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  h2 {
+    font-size: 17px;
+  }
+
+  h3 {
+    font-size: 25px;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  .sensor-grid {
+    gap: 8px;
+  }
+
+  .sensor-card {
+    padding: 12px;
+  }
+
+  .sensor-card p {
+    font-size: 11px;
+  }
+
+  .sensor-card small {
+    font-size: 11px;
+  }
+}

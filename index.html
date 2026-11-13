@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capsule Room | IoT Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <main class="dashboard">
+    <header class="header">
+      <div>
+        <p class="eyebrow">SMART IoT SYSTEM</p>
+        <h1>CAPSULE ROOM</h1>
+        <p class="subtitle">Monitoring & Control Dashboard</p>
+      </div>
+      <span class="status offline" id="connectionStatus">
+        ● ESP32 Offline
+      </span>
+    </header>
+
+    <section class="panel">
+      <div class="section-title">
+        <h2>System Status</h2>
+        <span class="demo-badge">DEMO</span>
+      </div>
+      <div class="status-row">
+        <span>ESP32 Connection</span>
+        <strong id="espStatus">Disconnected</strong>
+      </div>
+      <div class="status-row">
+        <span>Last Sensor Update</span>
+        <strong id="lastUpdate">No data</strong>
+      </div>
+    </section>
+
+    <h2 class="heading">SCD41 Sensor Monitoring</h2>
+
+    <section class="sensor-grid">
+      <article class="panel sensor-card">
+        <span class="sensor-icon">◉</span>
+        <p>CO₂ Level</p>
+        <h3 id="co2Value">--</h3>
+        <small>ppm</small>
+      </article>
+
+      <article class="panel sensor-card">
+        <span class="sensor-icon">♨</span>
+        <p>Temperature</p>
+        <h3 id="temperatureValue">--</h3>
+        <small>°C</small>
+      </article>
+
+      <article class="panel sensor-card">
+        <span class="sensor-icon">◈</span>
+        <p>Humidity</p>
+        <h3 id="humidityValue">--</h3>
+        <small>%RH</small>
+      </article>
+    </section>
+
+    <section class="panel control-panel">
+      <div class="section-title">
+        <h2>Lighting Control</h2>
+        <button id="lightToggle" class="btn active">
+          ON
+        </button>
+      </div>
+
+      <div class="setting-row">
+        <label for="brightness">Brightness</label>
+        <strong id="brightnessValue">70%</strong>
+      </div>
+
+      <input
+        id="brightness"
+        type="range"
+        min="0"
+        max="100"
+        value="70"
+      >
+
+      <label class="field-label" for="lightColor">
+        RGB Light Color
+      </label>
+
+      <div class="color-row">
+        <input
+          type="color"
+          id="lightColor"
+          value="#60a5fa"
+        >
+        <span id="colorValue">#60A5FA</span>
+      </div>
+
+      <div class="light-preview" id="lightPreview">
+        <div id="previewGlow"></div>
+        <p id="lightState">Light ON · 70%</p>
+      </div>
+    </section>
+
+    <section class="panel control-panel">
+      <div class="section-title">
+        <h2>Ventilation Control</h2>
+        <span class="fan-indicator" id="fanIndicator">
+          OFF
+        </span>
+      </div>
+
+      <div class="mode-buttons">
+        <button id="autoMode" class="btn active">
+          AUTO
+        </button>
+        <button id="manualMode" class="btn">
+          MANUAL
+        </button>
+      </div>
+
+      <div id="autoSettings" class="mode-content">
+        <p class="description">
+          Automatic ventilation based on CO₂ readings.
+        </p>
+
+        <div class="setting-row">
+          <label for="co2Threshold">CO₂ ON Threshold</label>
+          <strong id="thresholdValue">1000 ppm</strong>
+        </div>
+
+        <input
+          id="co2Threshold"
+          type="range"
+          min="800"
+          max="2000"
+          step="50"
+          value="1000"
+        >
+
+        <p class="hint">
+          Fan OFF threshold is 100 ppm below ON threshold.
+        </p>
+      </div>
+
+      <div id="manualSettings" class="mode-content hidden">
+        <p class="description">
+          Manually turn ventilation ON or OFF.
+        </p>
+        <button id="fanToggle" class="btn">
+          TURN FAN ON
+        </button>
+      </div>
+    </section>
+
+    <footer>
+      <p>Capsule Room IoT System</p>
+      <p id="systemMessage">
+        Demo mode — ESP32 is not connected.
+      </p>
+    </footer>
+  </main>
+
+</body>
+</html>
